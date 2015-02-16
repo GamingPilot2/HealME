@@ -14,7 +14,6 @@ class Main extends PluginBase implements Listener{
       $this->getServer()->getPluginManager()->registerEvents($this, $this);
       $this->getLogger()->info(TEXTFORMAT::RED . "HealME] " . TEXTFORMAT::GREEN . "I'm Enabled! Let's HEAL!");
     }
- }
 public function onCommand(CommandSender $sender, Command $command, $label, array $args) {
 	if($sender instanceof Player) {
 		$player = $sender->getPlayer()->getName();
@@ -34,3 +33,4 @@ public function onCommand(CommandSender $sender, Command $command, $label, array
 	}
 		}
 	}
+}
