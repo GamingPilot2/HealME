@@ -1,5 +1,6 @@
 <?php
-namespace HealME
+
+namespace HealME;
 
 use pocketmine\event\Listener;
 use pocketmine\Player;
