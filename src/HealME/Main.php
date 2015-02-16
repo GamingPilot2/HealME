@@ -8,6 +8,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
 use pocketmine\command\CommandExecuter
 
+class Main extends PluginBase implements Listener{
 public function onCommand(CommandSender $sender, Command $command, $label, array $args) {
 	if($sender instanceof Player) {
 		$player = $sender->getPlayer()->getName();
