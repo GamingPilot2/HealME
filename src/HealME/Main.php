@@ -19,9 +19,9 @@ public function onCommand(CommandSender $sender, Command $command, $label, array
 		$player = $sender->getPlayer()->getName();
 		if(strtolower($command->getName('heal'))) {
 		$healed = $this->getServer()->getPlayerExact($args[1]);
-          	$myhealth = $player->getHealth(); //Gets health
-		$sethealth = $myhealth + 10; //Adds health
-		$healed->setHealth($sethealth); //Sets health
+          	$myhealth = $player->getHealth();
+		$sethealth = $myhealth + 10; 
+		$healed->setHealth($sethealth); 
 		$healed->sendMessage("HealME] You Have Been Healed By " . $player . "!");
 			if(empty($args[1])) {
 		            $player->setHealth($sethealth)
