@@ -26,7 +26,10 @@ public function onCommand(CommandSender $sender, Command $command, $label, array
 			if(empty($args[1])) {
 		            $player->setHealth($sethealth)
 		            $player->sendMessage("HealME] You Have Been Healed!")
+				}else{
+		            		$player->setHealth($sethealth)
+		        		 $player->sendMessage("HealME] You Have Been Healed!")
+				}
 	}
 		}
 	}
-}
