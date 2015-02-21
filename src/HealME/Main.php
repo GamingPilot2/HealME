@@ -8,7 +8,7 @@ use pocketmine\utils\TextFormat;
 use pocketmine\command\CommandExecuter;
 
 class Main extends PluginBase implements Listener{
-    	public function onEnable(){
+    	public function onEnable() {
       	$this->getServer()->getPluginManager()->registerEvents($this, $this);
       	$this->getLogger()->info(TEXTFORMAT::RED . "HealME] " . TEXTFORMAT::GREEN . "I'm Enabled! Let's HEAL!");
     }
