@@ -22,13 +22,13 @@ class Main extends PluginBase implements Listener{
 				$player = $sender->getPlayer()->getName();
           			$myhealth = $player->getHealth();
 				$sethealth = $myhealth + 10; 
-		            	$sender->getPlayer()->setHealth($sethealth)
-		            	$sender->getPlayer()->getName()->sendMessage("HealME] You Have Been Healed!")
+		            	$player->getPlayer()->getName()->setHealth($sethealth)
+		            	$player->getPlayer()->getName()->sendMessage("HealME] You Have Been Healed!")
 					}else{
           				$myhealth = $player->getHealth();
 					$sethealth = $myhealth + 10; 
-		            		$sender->getPlayer()->setHealth($sethealth)
-		            		$sender->getPlayer()->getName()sendMessage("HealME] You Have Been Healed!")
+		            		$player->getPlayer()->getName()->setHealth($sethealth)
+		            		$player->getPlayer()->getName()sendMessage("HealME] You Have Been Healed!")
 				}
 	}
 		}
