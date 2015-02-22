@@ -25,12 +25,10 @@ class Main extends PluginBase implements Listener{
           			$myhealth = $player->getHealth();
 				$sethealth = $myhealth + 10; 
 		            	$player->setHealth($sethealth)
-		            	$sender->sendMessage("HealME] You Have Been Healed!")
 					}else{
           				$myhealth = $player->getHealth();
 					$sethealth = $myhealth + 10; 
 		            		$player->setHealth($sethealth)
-		            		$sender->sendMessage("HealME] You Have Been Healed!")
 				}
 	}
 		}
