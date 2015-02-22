@@ -1,18 +1,17 @@
 <?php
 namespace HealME;
-
 use pocketmine\event\Listener;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
 use pocketmine\command\CommandExecuter;
-
 class Main extends PluginBase implements Listener{
     	public function onEnable() {
       	$this->getServer()->getPluginManager()->registerEvents($this, $this);
       	$this->getLogger()->info(TEXTFORMAT::RED . "HealME] " . TEXTFORMAT::GREEN . "I'm Enabled! Let's HEAL!");
-    	}
+    }
 	public function onCommand(CommandSender $sender, Command $command, $label, array $args) {
+		if($sender instanceof Player) {
 			if(strtolower($command->getName('heal'))) {
 			$healed = $this->getServer()->getPlayerExact($args[1]);
           		$myhealth = $player->getHealth();
@@ -24,7 +23,14 @@ class Main extends PluginBase implements Listener{
           			$myhealth = $player->getHealth();
 				$sethealth = $myhealth + 10; 
 		            	$player->setHealth($sethealth)
+		            	$player->sendMessage("HealME] You Have Been Healed!")
+					}else{
+          				$myhealth = $player->getHealth();
+					$sethealth = $myhealth + 10; 
+		            		$player->setHealth($sethealth)
+		            		$player->sendMessage("HealME] You Have Been Healed!")
 				}
-			}
+	}
 		}
 	}
+}
