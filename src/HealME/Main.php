@@ -11,9 +11,8 @@ class Main extends PluginBase implements Listener{
     	public function onEnable() {
       	$this->getServer()->getPluginManager()->registerEvents($this, $this);
       	$this->getLogger()->info(TEXTFORMAT::RED . "HealME] " . TEXTFORMAT::GREEN . "I'm Enabled! Let's HEAL!");
-    }
+    	}
 	public function onCommand(CommandSender $sender, Command $command, $label, array $args) {
-		if($sender instanceof Player) {
 			if(strtolower($command->getName('heal'))) {
 			$healed = $this->getServer()->getPlayerExact($args[1]);
           		$myhealth = $player->getHealth();
@@ -26,7 +25,6 @@ class Main extends PluginBase implements Listener{
 				$sethealth = $myhealth + 10; 
 		            	$player->setHealth($sethealth)
 				}
-	}
+			}
 		}
 	}
-}
