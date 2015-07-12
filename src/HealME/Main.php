@@ -36,9 +36,7 @@ class Main extends PluginBase implements Listener{
 		            	$player->getPlayer()->setHealth(20);
 		            	$player->getPlayer()->getName()->sendMessage("HealME] You Have Been Healed!");
 					}else{
-          				$myhealth = $player->getHealth();
-					$sethealth = $myhealth + 10; 
-		            		$player->getPlayer()->getName()->setHealth($sethealth)
+		            		$player->getPlayer()->getName()->setHealth(20);
 		            		$player->getPlayer()->getName()sendMessage(TextFormat::BLUE."[" . TextFormat::RED . TextFormat::BOLD . "HealME" . TextFormat::RESET . TextFormat::BLUE . "]" . TextFormat::GREEN . "You Have Been Healed!");
 				}
 	}else{
