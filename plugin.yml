@@ -1,9 +1,10 @@
 name: HealME
 main: HealME\Main
-version: "1.0.0"
-api: [1.8.0]
+author: ItzBulkDev
+version: 1.0.0
+api: [1.12.0]
 description: Heals Players on command!
 commands:
   heal:
-    default: op
     description: Heals a player or yourself!
+    usage: /heal or /heal <player>
