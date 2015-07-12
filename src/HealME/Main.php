@@ -1,35 +1,54 @@
 <?php
+
 namespace HealME;
+
 use pocketmine\event\Listener;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
 use pocketmine\command\CommandExecuter;
+use pocketmine\command\CommandSender;
+use pocketmine\level\particle\HeartParticle;
+use pocketmine\level\sound\PopSound;
+
 class Main extends PluginBase implements Listener{
+	
     	public function onEnable() {
       	$this->getServer()->getPluginManager()->registerEvents($this, $this);
-      	$this->getLogger()->info(TEXTFORMAT::RED . "HealME] " . TEXTFORMAT::GREEN . "I'm Enabled! Let's HEAL!");
+      	$this->getLogger()->info(TextFormat::RED . "HealME] " . TextFormat::GREEN . "I'm Enabled! Let's HEAL!");
+      	
     }
 	public function onCommand(CommandSender $sender, Command $command, $label, array $args) {
+		$heart = new HeartParticle($sender);
 		if($sender instanceof Player) {
-			if(strtolower($command->getName('heal')))
-			$healed = $this->getServer()->getPlayerExact($args[1]);
-          		$myhealth = $player->getHealth();
-			$sethealth = $myhealth + 10; 
-			$healed->setHealth($sethealth); 
-			$healed->sendMessage("HealME] You Have Been Healed By " . $player . "!");
-				if(empty($args[1])) {
-				$player = $sender->getPlayer()->getName();
-          			$myhealth = $player->getHealth();
-				$sethealth = $myhealth + 10; 
-		            	$player->getPlayer()->getName()->setHealth($sethealth)
-		            	$player->getPlayer()->getName()->sendMessage("HealME] You Have Been Healed!")
+			switch($command->getName()){
+        		case 'heal':
+        		if($sender->isOp()){
+			$defined = $args[0];
+			$pop = new PopSound($defined);
+			$healed->setHealth(20);
+			$defined->getLevel()->addParticle($heart);
+			$defined->getLevel()->addSOund($pop);
+			$defined->sendMessage(TextFormat::BLUE."[" . TextFormat::RED . TextFormat::BOLD . "HealME" . TextFormat::RESET . TextFormat::BLUE . "] " . TextFormat::GREEN . "You Have Been Healed By " . TextFormat::GOLD . "" . $sender->getName() . "" . TextFormat::GREEN . "!");
+			$sender->sendMessage(TextFormat::BLUE."[" . TextFormat::RED . TextFormat::BOLD . "HealME" . TextFormat::RESET . TextFormat::BLUE . "] " . TextFormat::GREEN . "Healed $defined");
+				if(empty($args[0])) {
+				$player = $sender->getPlayer();
+		            	$player->getPlayer()->setHealth(20);
+		            	$player->getPlayer()->getName()->sendMessage("HealME] You Have Been Healed!");
 					}else{
           				$myhealth = $player->getHealth();
 					$sethealth = $myhealth + 10; 
 		            		$player->getPlayer()->getName()->setHealth($sethealth)
-		            		$player->getPlayer()->getName()sendMessage("HealME] You Have Been Healed!")
+		            		$player->getPlayer()->getName()sendMessage(TextFormat::BLUE."[" . TextFormat::RED . TextFormat::BOLD . "HealME" . TextFormat::RESET . TextFormat::BLUE . "]" . TextFormat::GREEN . "You Have Been Healed!");
 				}
+	}else{
+		$sender->sendMessage(TextFormat::RED."Only OPs Can Do That!");
 	}
 		}
+	}else{
+		if(!($sender instanceof Player)){
+		$sender->sendMessage("Run this command in game.");
 	}
+	}
+	}
+}
