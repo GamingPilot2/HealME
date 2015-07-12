@@ -8,6 +8,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
 use pocketmine\command\CommandExecuter;
 use pocketmine\command\CommandSender;
+use pocketmine\command\Command;
 use pocketmine\level\particle\HeartParticle;
 use pocketmine\level\sound\PopSound;
 
