@@ -32,12 +32,9 @@ class Main extends PluginBase implements Listener{
 			$defined->sendMessage(TextFormat::BLUE."[" . TextFormat::RED . TextFormat::BOLD . "HealME" . TextFormat::RESET . TextFormat::BLUE . "] " . TextFormat::GREEN . "You Have Been Healed By " . TextFormat::GOLD . "" . $sender->getName() . "" . TextFormat::GREEN . "!");
 			$sender->sendMessage(TextFormat::BLUE."[" . TextFormat::RED . TextFormat::BOLD . "HealME" . TextFormat::RESET . TextFormat::BLUE . "] " . TextFormat::GREEN . "Healed $defined");
 				if(empty($args[0])) {
-				$player = $sender->getPlayer();
-		            	$player->getPlayer()->setHealth(20);
-		            	$player->getPlayer()->getName()->sendMessage("HealME] You Have Been Healed!");
-					}else{
-		            		$player->getPlayer()->getName()->setHealth(20);
-		            		$player->getPlayer()->getName()sendMessage(TextFormat::BLUE."[" . TextFormat::RED . TextFormat::BOLD . "HealME" . TextFormat::RESET . TextFormat::BLUE . "]" . TextFormat::GREEN . "You Have Been Healed!");
+		            	$sender->setHealth(20);
+		            	$sender->sendMessage("HealME] You Have Been Healed!");
+					}
 				}
 	}else{
 		$sender->sendMessage(TextFormat::RED."Only OPs Can Do That!");
@@ -49,4 +46,3 @@ class Main extends PluginBase implements Listener{
 	}
 	}
 	}
-}
