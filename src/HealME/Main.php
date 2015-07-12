@@ -35,7 +35,6 @@ class Main extends PluginBase implements Listener{
 		            	$sender->setHealth(20);
 		            	$sender->sendMessage("HealME] You Have Been Healed!");
 					}
-				}
 	}else{
 		$sender->sendMessage(TextFormat::RED."Only OPs Can Do That!");
 	}
@@ -46,3 +45,4 @@ class Main extends PluginBase implements Listener{
 	}
 	}
 	}
+}
