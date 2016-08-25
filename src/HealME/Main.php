@@ -16,7 +16,7 @@ class Main extends PluginBase implements Listener{
 	
     	public function onEnable() {
       	$this->getServer()->getPluginManager()->registerEvents($this, $this);
-      	$this->getLogger()->info(TextFormat::RED . "HealME] " . TextFormat::GREEN . "I'm Enabled! Let's HEAL!");
+      	$this->getLogger()->info(TextFormat::RED . "[HealME] " . TextFormat::GREEN . "I'm Enabled! Let's HEAL!");
       	
     }
 	public function onCommand(CommandSender $sender, Command $command, $label, array $args) {
